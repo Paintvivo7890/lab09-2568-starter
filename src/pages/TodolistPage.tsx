@@ -5,18 +5,21 @@ import { useState } from "react";
 
 function App() {
   const [tasks, setTasks] = useState<TaskCardProps[]>([
+    
     {
       id: "1",
       title: "Read a book",
       description: "Vite + React + Bootstrap + TS",
       isDone: false,
     },
+    
     {
       id: "2",
       title: "Write code",
       description: "Finish project for class",
       isDone: false,
     },
+    
     {
       id: "3",
       title: "Deploy app",
@@ -45,11 +48,15 @@ function App() {
     setTasks(newTasks);
   };
 
+  const totalTasks = tasks.length;
+  const doneTasks = tasks.filter((task) => task.isDone).length;
+
+
   return (
     <div className="col-12 m-2 p-0">
       <div className="container text-center">
         <h2>Todo List</h2>
-        <span className="m-2">All : () Done : ()</span>
+        <span className="m-2">All : ({totalTasks}) Done : ({doneTasks})</span>
         {/* Modal Component */}
         <button
           type="button"
